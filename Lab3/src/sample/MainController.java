@@ -88,10 +88,12 @@ public class MainController implements Initializable , EventHandler<ActionEvent>
     @Override
     public void handle(ActionEvent event) {
         try {
-            DisneyMovies disneyMovies = new DisneyMovies(isMovieName.toString());
-            disneyMovies.loadCharacters("data/characters.csv");
+            //String movieName = isMovieName.toString();
             disneyMovies.loadMovies("data/movies.csv");
-            movies = disneyMovies.getMoviesByName(isMovieName.toString());
+            disneyMovies.loadCharacters("data/characters.csv");
+            movies = disneyMovies.getMoviesByName("T");
+            System.out.println(movies.toString());
+            MovieResults.setText(MovieResults.getText()+"Hello");
         } catch (Exception e){
             e.printStackTrace();
         }

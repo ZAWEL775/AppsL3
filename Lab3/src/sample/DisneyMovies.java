@@ -1,9 +1,10 @@
 package sample;
 
+import sun.security.util.ByteArrayLexOrder;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DisneyMovies {
@@ -78,9 +79,6 @@ public class DisneyMovies {
                 }
             }
         } buf.close();
-        for(int i=0; i< movieArrayList.size(); i++){
-           System.out.println(movieArrayList.get(i));
-        }
 
         // TODO Add Movies Object
 
@@ -137,9 +135,6 @@ public class DisneyMovies {
                 }
             }
         } buf.close();
-        for(int i=0; i< charactersArrayList.size(); i++){
-            System.out.println(charactersArrayList.get(i));
-        }
 
         // TODO  Add characters object
 
@@ -179,14 +174,12 @@ public class DisneyMovies {
     public ArrayList<Movies> getMoviesByName(String movieName){
         // TODO Traverse through movies array object find any matches of string/char
         // TODO Print any matching movie object with the cast object attacked to it.
-
-
+        ArrayList<Movies> returnArrayList = new ArrayList<>();
         for(int i =0; i< movie.size(); i++){
-            matches.add(movie.get(i).getName());
-        }
-
-
-
+           if(movie.get(i).getName().contains(movieName)){
+               returnArrayList.add(movie.get(i));
+           }
+        } return returnArrayList;
     }
 
 
